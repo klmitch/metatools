@@ -3,10 +3,10 @@ Python Metaclass Construction Tools
 ===================================
 
 This package contains the ``metatools`` module, which provides a
-utility class (MetaClass) which metaclasses can extend.  It provides
-three static methods (available only on classes inheriting from
-MetaClass; they will not clutter up your actual classes) which can be
-used to enhance inheritance.
+utility class (``MetaClass``) which metaclasses can extend.  It
+provides three static methods (available only on classes inheriting
+from ``MetaClass``; they will not clutter up your actual classes)
+which can be used to enhance inheritance.
 
 The most important of these static methods is the ``iter_bases()``
 method.  When passed a list of base classes, such as those passed to

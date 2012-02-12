@@ -19,8 +19,9 @@
 Python Metaclass Construction Tools
 ===================================
 
-This module provides a utility class (MetaClass) which metaclasses can
-extend.  MetaClass provides the three following static methods:
+This module provides a utility class (``MetaClass``) which metaclasses
+can extend.  ``MetaClass`` provides the three following static
+methods:
 
 ``iter_bases()``
   Iterate through base classes in method resolution order.
@@ -93,17 +94,20 @@ class MetaMeta(type):
         post-processing.
 
         :param base: The base class being considered; see
-                     iter_bases().
+                     ``iter_bases()``.
         :param namespace: The dictionary of the new class being built.
         :param attr_name: The name of the attribute containing the
                           dictionary to be inherited.
-        :param inherit: Filtering function to determine if a given key
-                        should be inherited.  If False or None, key
-                        will not be added, but will be included in the
-                        returned items.  If a function, key will be
-                        added and included in the items list only if
-                        the function returns True.  By default, all
-                        keys are added and included in the items list.
+        :param inherit: Filtering function to determine if a given
+                        item should be inherited.  If ``False`` or
+                        ``None``, item will not be added, but will be
+                        included in the returned items.  If a
+                        function, the function will be called with the
+                        key and value, and the item will be added and
+                        included in the items list only if the
+                        function returns ``True``.  By default, all
+                        items are added and included in the items
+                        list.
         """
 
         items = []
@@ -134,18 +138,19 @@ class MetaMeta(type):
         were inherited, for post-processing.
 
         :param base: The base class being considered; see
-                     iter_bases().
+                     ``iter_bases()``.
         :param namespace: The dictionary of the new class being built.
         :param attr_name: The name of the attribute containing the set
                           to be inherited.
         :param inherit: Filtering function to determine if a given
-                        item should be inherited.  If False or None,
-                        item will not be added, but will be included
-                        in the returned items.  If a function, item
-                        will be added and included in the items list
-                        only if the function returns True.  By
-                        default, all items are added and included in
-                        the items list.
+                        item should be inherited.  If ``False`` or
+                        ``None``, item will not be added, but will be
+                        included in the returned items.  If a
+                        function, the function will be called with the
+                        item, and the item will be added and included
+                        in the items list only if the function returns
+                        ``True``.  By default, all items are added and
+                        included in the items list.
         """
 
         items = []
