@@ -1,3 +1,39 @@
+# Copyright (C) 2012 by Kevin L. Mitchell <klmitch@mit.edu>
+#
+# This program is free software: you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see
+# <http://www.gnu.org/licenses/>.
+
+"""
+===================================
+Python Metaclass Construction Tools
+===================================
+
+This module provides a utility class (MetaClass) which metaclasses can
+extend.  MetaClass provides the three following static methods:
+
+``iter_bases()``
+  Iterate through base classes in method resolution order.
+
+``inherit_dict()``
+  Inherit dictionary entries from a specific base class into one in a
+  given namespace.
+
+``inherit_set()``
+  Inherit set entries from a specific base class into one in a given
+  namespace.
+"""
+
 import inspect
 
 
@@ -5,6 +41,13 @@ __all__ = ['MetaClass']
 
 
 class MetaMeta(type):
+    """
+    A meta-metaclass.  This class allows the ``iter_bases()``,
+    ``inherit_dict()``, and ``inherit_set()`` methods to be present in
+    the metaclass without cluttering up the namespace of the class
+    being constructed.
+    """
+
     @staticmethod
     def iter_bases(bases):
         """
@@ -55,12 +98,12 @@ class MetaMeta(type):
         :param attr_name: The name of the attribute containing the
                           dictionary to be inherited.
         :param inherit: Filtering function to determine if a given key
-                        should be inherited.  If None, key will not be
-                        added, but will be included in the returned
-                        items.  If a function, key will be added and
-                        included in the items list only if the
-                        function returns True.  By default, all keys
-                        are added and included in the items list.
+                        should be inherited.  If False or None, key
+                        will not be added, but will be included in the
+                        returned items.  If a function, key will be
+                        added and included in the items list only if
+                        the function returns True.  By default, all
+                        keys are added and included in the items list.
         """
 
         items = []
@@ -96,13 +139,13 @@ class MetaMeta(type):
         :param attr_name: The name of the attribute containing the set
                           to be inherited.
         :param inherit: Filtering function to determine if a given
-                        item should be inherited.  If None, item will
-                        not be added, but will be included in the
-                        returned items.  If a function, item will be
-                        added and included in the items list only if
-                        the function returns True.  By default, all
-                        items are added and included in the items
-                        list.
+                        item should be inherited.  If False or None,
+                        item will not be added, but will be included
+                        in the returned items.  If a function, item
+                        will be added and included in the items list
+                        only if the function returns True.  By
+                        default, all items are added and included in
+                        the items list.
         """
 
         items = []
