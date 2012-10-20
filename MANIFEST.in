@@ -1,1 +1,2 @@
-include COPYING README.rst
+include COPYING README.rst test-requires tox.ini
+include test_metatools.py

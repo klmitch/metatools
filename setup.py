@@ -2,9 +2,17 @@
 
 from setuptools import setup
 
+
+def readreq(filename):
+    with open(filename) as f:
+        reqs = [r.partition('#')[0].strip() for r in f]
+        return [r for r in reqs if r]
+
+
 def readfile(filename):
     with open(filename) as f:
         return f.read()
+
 
 setup(
     name='Metatools',
@@ -24,4 +32,5 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         ],
     py_modules=['metatools'],
+    tests_require=readreq('test-requires'),
     )
