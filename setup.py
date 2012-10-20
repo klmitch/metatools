@@ -16,7 +16,7 @@ def readfile(filename):
 
 setup(
     name='Metatools',
-    version='0.1',
+    version='0.1.1',
     author='Kevin L. Mitchell',
     author_email='klmitch@mit.edu',
     url='http://github.com/klmitch/metatools/',
