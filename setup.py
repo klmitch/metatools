@@ -16,8 +16,10 @@ setup(
     long_description=readfile('README.rst'),
     classifiers=[
         'Development Status :: 4 - Beta',
-        'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License (GPL)',
+        'Environment :: No Input/Output (Daemon)',
+        'Intended Audience :: Developers',
+        'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries :: Python Modules',
         ],
